@@ -166,7 +166,7 @@ label and day).
 python -m pytest tests -q
 ```
 
-62 tests cover auth/RBAC, case lifecycle, consent take-back, rule versioning,
+69 tests cover auth/RBAC, case lifecycle, consent take-back, rule versioning,
 bad data, classifier routing and false alarms, multi-tenancy, API keys/scopes/
 rate limiting, offline sync, accessibility, safety gates, explainability and
 Alembic migrations.
@@ -186,7 +186,7 @@ app/
   data/              mock policy docs + deterministic seed
   static/            low-literacy voice-first UI
 migrations/versions/ Alembic initial schema
-tests/               62 passing tests
+tests/               69 passing tests
 ```
 
 ## Known limits (honest)
