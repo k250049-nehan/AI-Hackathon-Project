@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Last Mile — PROTOTYPE</title>
+  <script>try{var l=localStorage.getItem('lm_lang')||'ur';document.documentElement.lang=l;document.documentElement.dir=l==='ur'?'rtl':'ltr';}catch(e){}</script>
+  <link rel="stylesheet" href="/static/style.css?v=23">
+</head>
+<body>
+
+<!-- Permanent honesty strip: this is part of the product contract, not decoration. -->
+<div id="prototypeBar" class="prototype-bar">
+  <span class="prototype-notice">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5"/><path d="M12 17.5h.01"/></svg>
+    <span data-i18n="prototypeNotice">PROTOTYPE — NOT AN OFFICIAL SERVICE — ALL DATA MOCKED</span>
+  </span>
+  <span id="netBadge" class="net-badge" role="status" aria-live="polite">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg>
+    <span data-net-text data-i18n="online">online</span>
+  </span>
+</div>
+
+<!-- ============================ SIGN IN ============================ -->
+<section id="loginScreen" class="screen active" aria-labelledby="loginTitle">
+  <div class="card login-card">
+    <div class="masthead">
+      <div class="seal" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 10 12 4l9 6"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/><path d="M3 20h18"/></svg>
+      </div>
+      <div class="masthead-copy">
+        <h1 id="loginTitle" class="brand" data-i18n="appName">Last Mile</h1>
+        <p class="subtitle" data-i18n="loginSub">Relief payment help — prototype</p>
+      </div>
+      <button id="loginLangBtn" class="icon-btn lang-toggle" type="button" data-i18n-title="changeLanguage" data-i18n-aria="changeLanguage" aria-label="Change language">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg>
+      </button>
+    </div>
+
+    <div class="rule" aria-hidden="true"></div>
+
+    <form id="loginForm" novalidate>
+      <label for="emailInput" data-i18n="email">Email</label>
+      <input id="emailInput" type="email" value="fatima@mock.local" autocomplete="username" aria-describedby="loginError">
+      <label for="passwordInput" data-i18n="password">Password</label>
+      <div class="password-field">
+        <input id="passwordInput" type="password" value="Demo@123" autocomplete="current-password" aria-describedby="loginError">
+        <button id="showPasswordBtn" class="password-toggle" type="button" aria-label="Show password" title="Show password" aria-pressed="false" aria-controls="passwordInput">
+          <svg class="icon password-eye password-eye-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.8-6.5 10-6.5S22 12 22 12s-3.8 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.8"/></svg>
+          <svg class="icon password-eye password-eye-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 6.1A11.4 11.4 0 0 1 12 6c6.2 0 10 6 10 6a16.5 16.5 0 0 1-3.4 3.9"/><path d="M6.2 8.2C3.6 9.8 2 12 2 12s3.8 6 10 6a11.4 11.4 0 0 0 3.9-.7"/><path d="M9.8 9.9a3 3 0 0 0 4.3 4.3"/></svg>
+        </button>
+      </div>
+      <div id="loginError" class="field-error" role="alert" hidden></div>
+      <button id="loginBtn" class="btn btn-primary" type="submit">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        <span data-i18n="signIn">Sign in</span>
+      </button>
+    </form>
+
+    <div class="role-section">
+      <h2 class="section-label" data-i18n="demoRoles">Demo roles</h2>
+      <div class="quick-logins">
+        <button class="chip" type="button" data-email="fatima@mock.local">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+          <span data-i18n="citizen">Citizen</span>
+        </button>
+        <button class="chip" type="button" data-email="helper@mock.local">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2.5 19a5.5 5.5 0 0 1 11 0"/><path d="M12.5 19a5.5 5.5 0 0 1 9-4.3"/></svg>
+          <span data-i18n="helperRole">Helper</span>
+        </button>
+        <button class="chip" type="button" data-email="officer@mock.local">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.8 7 9 4-1.2 7-4.5 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span data-i18n="officer">Officer</span>
+        </button>
+        <button class="chip" type="button" data-email="admin@mock.local">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1L7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1 2.8 2.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg>
+          <span data-i18n="admin">Admin</span>
+        </button>
+        <button class="chip" type="button" data-email="auditor@mock.local">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/><path d="M8 10.5h5"/></svg>
+          <span data-i18n="auditor">Auditor</span>
+        </button>
+      </div>
+      <p class="hint" data-i18n="demoHint">Demo password: Demo@123. Every record is fake.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COUNTER ============================ -->
+<section id="appScreen" class="screen">
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 10 12 4l9 6"/><path d="M5 10v10h14V10"/><path d="M3 20h18"/></svg>
+    </div>
+    <div class="title-wrap">
+      <strong data-i18n="appName">Last Mile</strong>
+      <small id="roleLabel"></small>
+    </div>
+    <button id="langBtn" class="icon-btn" type="button" data-i18n-title="changeLanguage" data-i18n-aria="changeLanguage" aria-label="Change language">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg>
+    </button>
+    <button id="syncBtn" class="icon-btn hidden" type="button" data-i18n-title="syncSaved" data-i18n-aria="syncSaved" aria-label="Sync saved requests">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.5-4.5L3 9"/><path d="M3 4v5h5"/><path d="M4 13a8 8 0 0 0 14.5 4.5L21 15"/><path d="M21 20v-5h-5"/></svg>
+      <span id="queueCount" class="counter" aria-hidden="true">0</span>
+    </button>
+    <button id="logoutBtn" class="icon-btn" type="button" data-i18n-title="signOut" data-i18n-aria="signOut" aria-label="Sign out">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5v16h5"/><path d="M14 8l4 4-4 4"/><path d="M18 12H9"/></svg>
+    </button>
+  </header>
+
+  <div id="roleBanner" class="role-banner" hidden aria-live="polite"></div>
+
+  <main>
+    <!-- ============================ HOME PAGE ============================ -->
+    <div id="viewHome" class="view active">
+      <section id="rolePanel" class="card role-panel" hidden aria-live="polite" aria-labelledby="rolePanelTitle">
+        <h2 id="rolePanelTitle"></h2>
+        <p id="rolePanelIntro" class="hint"></p>
+        <div id="rolePanelBody" class="role-list"></div>
+      </section>
+
+      <div id="statusCard" class="card status-card" aria-labelledby="statusTitle">
+        <div class="status-icon" id="statusIcon" aria-hidden="true"></div>
+        <div class="status-body">
+          <h2 id="statusTitle" data-i18n="yourProgress">Your progress</h2>
+          <p id="statusText" aria-live="polite">Loading…</p>
+          <div id="progressTrack" class="progress" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" data-i18n-aria="progress"><div id="progressBar"></div></div>
+        </div>
+        <button id="speakStatus" class="icon-btn" type="button" data-i18n-title="readStatus" data-i18n-aria="readStatus" aria-label="Read status aloud">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M17 9a4 4 0 0 1 0 6"/><path d="M19.5 6.5a8 8 0 0 1 0 11"/></svg>
+        </button>
+      </div>
+
+      <div class="intake">
+        <button id="micBtn" class="mic-btn" type="button" aria-describedby="micHint">
+          <svg class="icon mic-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5V21"/><path d="M8.5 21h7"/></svg>
+          <span data-i18n="speakRequest">Speak your request</span>
+        </button>
+        <div id="voiceMeter" class="voice-meter hidden" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+        <p id="voiceLevelText" class="hint center hidden" aria-live="polite"></p>
+        <button id="stopBtn" class="btn btn-stop hidden" type="button" data-i18n-aria="stopRecording" aria-label="Stop recording">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+          <span data-i18n="stopRecording">Stop recording</span>
+        </button>
+        <p id="micHint" class="hint center" data-i18n="micHint">Tap the microphone and say what you need.</p>
+        <p id="voiceNote" class="voice-note" hidden></p>
+
+        <section class="claim-details" aria-labelledby="claimDetailsTitle">
+          <div class="claim-details-head">
+            <h3 id="claimDetailsTitle" data-i18n="claimDetailsTitle">Claim details</h3>
+            <span id="claimFillNote" class="fill-note hidden" data-i18n="claimFillNote">Filled from your voice — check them.</span>
+          </div>
+          <p class="hint" data-i18n="claimDetailsHint">Speech fills these fields. Check them before sending. Fields marked * are required.</p>
+          <div class="claim-grid">
+            <div class="claim-field">
+              <label for="claimFullName"><span data-i18n="fullNameLabel">Full name</span> <span class="required" aria-hidden="true">*</span></label>
+              <input id="claimFullName" type="text" autocomplete="name" required aria-required="true" data-i18n-ph="fullNamePlaceholder" placeholder="Muhammad Ahmed" aria-describedby="claimFullNameError">
+              <div id="claimFullNameError" class="field-error" role="alert" hidden></div>
+            </div>
+            <div class="claim-field">
+              <label for="claimCnic"><span data-i18n="cnicLabel">CNIC</span> <span class="required" aria-hidden="true">*</span></label>
+              <input id="claimCnic" type="text" inputmode="numeric" autocomplete="off" required aria-required="true" data-i18n-ph="cnicPlaceholder" placeholder="12345-6789012-3" aria-describedby="claimCnicError">
+              <div id="claimCnicError" class="field-error" role="alert" hidden></div>
+            </div>
+            <div class="claim-field">
+              <label for="claimDistrict"><span data-i18n="districtLabel">District</span> <span class="required" aria-hidden="true">*</span></label>
+              <input id="claimDistrict" type="text" autocomplete="address-level2" required aria-required="true" data-i18n-ph="districtPlaceholder" placeholder="Lahore" aria-describedby="claimDistrictError">
+              <div id="claimDistrictError" class="field-error" role="alert" hidden></div>
+            </div>
+            <div class="claim-field">
+              <label for="claimCategory"><span data-i18n="categoryLabel">Category</span> <span class="required" aria-hidden="true">*</span></label>
+              <select id="claimCategory" required aria-required="true" aria-describedby="claimCategoryError">
+                <option value="" data-i18n="chooseCategory">Choose category</option>
+                <option value="widow" data-i18n="categoryWidow">Widow</option>
+                <option value="disabled" data-i18n="categoryDisabled">Disabled</option>
+                <option value="unemployed" data-i18n="categoryUnemployed">Unemployed</option>
+                <option value="low_income" data-i18n="categoryLowIncome">Low income</option>
+              </select>
+              <div id="claimCategoryError" class="field-error" role="alert" hidden></div>
+            </div>
+            <div class="claim-field">
+              <label for="claimIncome"><span data-i18n="incomeLabel">Monthly income (PKR)</span> <span class="required" aria-hidden="true">*</span></label>
+              <input id="claimIncome" type="number" min="0" step="1" inputmode="numeric" required aria-required="true" data-i18n-ph="incomePlaceholder" placeholder="18000" aria-describedby="claimIncomeError">
+              <div id="claimIncomeError" class="field-error" role="alert" hidden></div>
+            </div>
+            <div class="claim-field">
+              <label for="claimAmount"><span data-i18n="amountLabel">Claim amount (PKR)</span> <span class="required" aria-hidden="true">*</span></label>
+              <input id="claimAmount" type="number" min="1" step="1" inputmode="numeric" required aria-required="true" data-i18n-ph="amountPlaceholder" placeholder="5000" aria-describedby="claimAmountError">
+              <div id="claimAmountError" class="field-error" role="alert" hidden></div>
+            </div>
+            <div class="claim-field">
+              <label for="claimDependents" data-i18n="dependentsLabel">Dependents (optional)</label>
+              <input id="claimDependents" type="number" min="0" max="30" step="1" inputmode="numeric" data-i18n-ph="dependentsPlaceholder" placeholder="0" aria-describedby="claimDependentsError">
+              <div id="claimDependentsError" class="field-error" role="alert" hidden></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="request-field">
+          <label class="field-label" for="textInput" data-i18n="requestLabel">Your request</label>
+          <textarea id="textInput" rows="3" data-i18n-ph="typePlaceholder" placeholder="My relief payment has not arrived and I have no income this month. Please help me check my claim."></textarea>
+        </div>
+        <div class="button-row">
+          <button id="sendBtn" class="btn btn-primary" type="button">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+            <span data-i18n="send">Send</span>
+          </button>
+          <button id="statusRefresh" class="btn btn-secondary" type="button">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.5-4.5L3 9"/><path d="M3 4v5h5"/></svg>
+            <span data-i18n="refresh">Refresh</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================ CASES PAGE ============================ -->
+    <div id="viewCases" class="view" hidden>
+      <section class="cases-section" aria-labelledby="casesHeading">
+        <div class="view-heading">
+          <h2 id="casesHeading" data-i18n="myCases">My cases</h2>
+          <button id="casesRefresh" class="icon-btn" type="button" data-i18n-title="refreshCases" data-i18n-aria="refreshCases" aria-label="Refresh cases">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.5-4.5L3 9"/><path d="M3 4v5h5"/></svg>
+          </button>
+        </div>
+        <div id="caseList" class="case-list" role="list" aria-labelledby="casesHeading"></div>
+      </section>
+    </div>
+
+    <!-- ============================ HELP PAGE ============================ -->
+    <div id="viewHelp" class="view" hidden>
+      <section class="card help-card" aria-labelledby="helpHeading">
+        <h2 id="helpHeading" data-i18n="help">Help / Ask a question</h2>
+        <form id="helpForm" novalidate>
+          <label class="field-label" for="helpQuestion" data-i18n="ask">Ask</label>
+          <input id="helpQuestion" type="text" data-i18n-ph="askPlaceholder" placeholder="What is the income limit?" aria-describedby="helpError">
+          <div id="helpError" class="field-error" role="alert" hidden></div>
+          <button id="helpBtn" class="btn btn-secondary" type="submit">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+            <span data-i18n="ask">Ask</span>
+          </button>
+        </form>
+        <div id="helpAnswer" class="answer" aria-live="polite"></div>
+      </section>
+
+      <section class="card voice-card" aria-labelledby="voiceSetupTitle">
+        <h2 id="voiceSetupTitle" data-i18n="voiceSetup">Voice setup</h2>
+        <p class="hint" data-i18n="voiceHelp">Urdu speech works in Microsoft Edge on Windows. Chrome uses your device voices.</p>
+        <div class="button-row">
+          <button id="checkVoicesBtn" class="btn btn-secondary" type="button">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+            <span data-i18n="checkVoices">Check voices</span>
+          </button>
+          <button id="testVoiceBtn" class="btn btn-secondary" type="button">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M17 9a4 4 0 0 1 0 6"/><path d="M19.5 6.5a8 8 0 0 1 0 11"/></svg>
+            <span data-i18n="testUrdu">Test Urdu</span>
+          </button>
+        </div>
+        <div id="voiceDiag" class="answer" aria-live="polite"></div>
+      </section>
+    </div>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Main navigation" data-i18n-aria="mainNav">
+    <button id="navHome" class="active" type="button" aria-current="page">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+      <span data-i18n="home">Home</span>
+    </button>
+    <button id="navCases" type="button">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h6l2 2h10v11H3V7Z"/><path d="M3 7V5h6l2 2"/></svg>
+      <span data-i18n="cases">Cases</span>
+    </button>
+    <button id="navHelp" type="button">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 3.4 2.5c-.6.2-.9.8-.9 1.5v.5"/><path d="M12 17h.01"/></svg>
+      <span data-i18n="helpShort">Help</span>
+    </button>
+  </nav>
+</section>
+
+<div id="toast" class="toast hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="/static/app.js?v=23"></script>
+</body>
+</html>

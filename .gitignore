@@ -1,0 +1,6 @@
+.vercel/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/*.db
+.impeccable/shots/

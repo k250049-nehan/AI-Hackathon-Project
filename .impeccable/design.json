@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T00:00:00.000Z",
+  "title": "Design System: Last Mile — Public Help Window (PROTOTYPE)",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#000000" },
+      "card": { "role": "neutral", "displayName": "Card", "canonical": "#1b1f1c" },
+      "surface": { "role": "neutral", "displayName": "Surface", "canonical": "#242a26" },
+      "input-bg": { "role": "neutral", "displayName": "Input", "canonical": "#101310" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#f2f6f3" },
+      "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#d8e3dc" },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "#9fb0a6" },
+      "green": { "role": "primary", "displayName": "Green", "canonical": "#22b56a" },
+      "green-deep": { "role": "primary", "displayName": "Green Deep", "canonical": "#178a4f" },
+      "green-active": { "role": "primary", "displayName": "Green Active", "canonical": "#116b3e" },
+      "green-wash": { "role": "primary", "displayName": "Green Wash", "canonical": "#12281e" },
+      "on-green": { "role": "primary", "displayName": "On Green", "canonical": "#04190f" },
+      "amber": { "role": "secondary", "displayName": "Amber", "canonical": "#d98a1f" },
+      "amber-wash": { "role": "secondary", "displayName": "Amber Wash", "canonical": "#2a1d08" },
+      "amber-ink": { "role": "secondary", "displayName": "Amber Ink", "canonical": "#ffcf8a" },
+      "red": { "role": "tertiary", "displayName": "Red", "canonical": "#ff6b5e" },
+      "red-wash": { "role": "tertiary", "displayName": "Red Wash", "canonical": "#2a1210" },
+      "line": { "role": "neutral", "displayName": "Line", "canonical": "#303a34" },
+      "line-strong": { "role": "neutral", "displayName": "Line Strong", "canonical": "#4a6556" },
+      "strip-bg": { "role": "custom", "displayName": "Strip Background", "canonical": "#0a0f0c" },
+      "strip-ink": { "role": "custom", "displayName": "Strip Ink", "canonical": "#f4e2b8" },
+      "strip-icon": { "role": "custom", "displayName": "Strip Icon", "canonical": "#ffd97a" },
+      "online": { "role": "custom", "displayName": "Online", "canonical": "#a9e6c2" },
+      "offline": { "role": "custom", "displayName": "Offline", "canonical": "#ffb4a8" },
+      "focus": { "role": "custom", "displayName": "Focus", "canonical": "rgba(34, 181, 106, .42)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "32px/800 sign-in brand." },
+      "status-title": { "displayName": "Status Title", "purpose": "18px/700 status ticket heading." },
+      "body": { "displayName": "Body", "purpose": "17px prompts, inputs, status, buttons, chips." },
+      "label": { "displayName": "Label", "purpose": "15px/700 field labels and pills." },
+      "mic": { "displayName": "Mic", "purpose": "23px/800 microphone prompt." },
+      "small": { "displayName": "Small", "purpose": "14px strip, hints, confidence, navigation." },
+      "case-id": { "displayName": "Case ID", "purpose": "15px/700 case number in a row." }
+    },
+    "icons": [
+      { "name": "check", "meaning": "Approved" },
+      { "name": "cross", "meaning": "Blocked / rejected" },
+      { "name": "info", "meaning": "Needs information" },
+      { "name": "clock", "meaning": "Waiting" },
+      { "name": "clipboard", "meaning": "New case" },
+      { "name": "mic", "meaning": "Speak" },
+      { "name": "globe", "meaning": "Language toggle on both screens" }
+    ],
+    "shadows": [
+      { "name": "card-lift", "value": "0 3px 16px rgba(0, 0, 0, .55)", "purpose": "All card surfaces." },
+      { "name": "mic-lift", "value": "0 6px 22px rgba(0, 0, 0, .55)", "purpose": "The microphone button only; neutral, never a colored glow." },
+      { "name": "toast-float", "value": "0 8px 24px rgba(0, 0, 0, .6)", "purpose": "Transient feedback toast only." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(.2, .7, .2, 1)", "purpose": "Default easing." },
+      { "name": "speed-default", "value": "180ms", "purpose": "Hover and focus transitions." },
+      { "name": "pulse", "value": "1s infinite", "purpose": "Microphone listening pulse." },
+      { "name": "spin", "value": ".7s linear infinite", "purpose": "Busy-state spinner." }
+    ],
+    "breakpoints": [
+      { "name": "tiny", "value": "359px" },
+      { "name": "claim-grid", "value": "560px" },
+      { "name": "wide-gutter", "value": "700px" },
+      { "name": "column", "value": "720px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "description": "The full-width next step on a screen.",
+      "html": "<button class=\"btn btn-primary\"><svg class=\"icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/></svg><span>Send</span></button>",
+      "css": ".btn-primary { background:#22b56a; color:#04190f; border:1px solid transparent; border-radius:10px; min-height:50px; padding:12px 18px; font-weight:700; } .btn-primary:hover { background:#178a4f; color:#f2f6f3; } .btn:disabled { opacity:.55; cursor:not-allowed; } .btn:focus-visible { outline:3px solid rgba(34,181,106,.42); outline-offset:2px; }"
+    },
+    {
+      "name": "Microphone Button",
+      "kind": "button",
+      "description": "The single dominant voice action.",
+      "html": "<button class=\"mic-btn\"><svg class=\"icon mic-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"9\" y=\"3\" width=\"6\" height=\"11\" rx=\"3\"/><path d=\"M5.5 11a6.5 6.5 0 0 0 13 0\"/><path d=\"M12 17.5V21\"/><path d=\"M8.5 21h7\"/></svg><span>Speak your request</span></button>",
+      "css": ".mic-btn { background:#22b56a; color:#04190f; border:1px solid #178a4f; border-radius:14px; min-height:96px; font-size:23px; font-weight:800; box-shadow:0 6px 22px rgba(0,0,0,.55); } .mic-btn:hover { background:#178a4f; color:#f2f6f3; } .mic-btn.listening { background:#d98a1f; color:#1a1005; animation:pulse 1s infinite; }"
+    },
+    {
+      "name": "Stop Recording Button",
+      "kind": "button",
+      "description": "Red control revealed only while recording. Continuous recognition waits for this button or for Send; both call recognition.stop(), which requests a final result and releases the mic. Sending preserves the submitted text from late results; the officer gate still applies.",
+      "html": "<button id=\"stopBtn\" class=\"btn btn-stop hidden\" type=\"button\" aria-label=\"Stop recording\"><svg class=\"icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"6\" y=\"6\" width=\"12\" height=\"12\" rx=\"2\"/></svg><span>Stop recording</span></button>",
+      "css": ".btn-stop { width:100%; margin-top:10px; background:#ff6b5e; color:#1a0806; border:1px solid #ff6b5e; min-height:50px; } .btn-stop:hover { background:#ff8b81; } .btn-stop .icon { fill:currentColor; stroke:none; } .hidden { display:none !important; }"
+    },
+    {
+      "name": "Claim Details & Request",
+      "kind": "form",
+      "description": "Seven labelled claim fields stay visible on a Surface panel, clearly secondary to the microphone, with a separate request textarea. Speech fills the request box and untouched fields; when Stop is pressed the app asks by voice for the first missing required field, fills only that field from the answer, and repeats until all required fields are valid. Edited values are authoritative and a case is created only when Send is pressed. The explicit claim_data object is validated by the same server path as normal cases.",
+      "html": "<section class=\"claim-details\"><div class=\"claim-details-head\"><h3>Claim details</h3><span class=\"fill-note hidden\">Filled from your words — check them.</span></div><p class=\"hint\">Fields marked * are required.</p><div class=\"claim-grid\"><div class=\"claim-field\"><label for=\"claimFullName\">Full name <span class=\"required\">*</span></label><input id=\"claimFullName\" required aria-required=\"true\"><div id=\"claimFullNameError\" class=\"field-error\" role=\"alert\" hidden></div></div><div class=\"claim-field\"><label for=\"claimCnic\">CNIC <span class=\"required\">*</span></label><input id=\"claimCnic\" required aria-required=\"true\"><div id=\"claimCnicError\" class=\"field-error\" role=\"alert\" hidden></div></div></div></section><div class=\"request-field\"><label for=\"textInput\">Your request</label><textarea id=\"textInput\" rows=\"3\"></textarea></div>",
+      "css": ".claim-details { margin-top:18px; padding:16px; background:#242a26; border:1px solid #303a34; border-radius:12px; } .claim-details h3 { margin:0; font-size:17px; color:#f2f6f3; } .fill-note { background:#12281e; color:#22b56a; border:1px solid #4a6556; border-radius:20px; padding:4px 9px; font-weight:700; } .claim-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .claim-field input, .claim-field select { min-height:48px; } .claim-field .required { color:#22b56a; } .request-field { margin-top:16px; } @media (max-width:560px) { .claim-grid { grid-template-columns:1fr; } }"
+    },
+    {
+      "name": "Role Workspace Banner",
+      "kind": "component",
+      "description": "Localized role title, purpose, and server-enforcement note shown under the top bar for every signed-in role.",
+      "html": "<div class=\"role-banner\"><strong>Officer workspace</strong><span>Review pending cases. AI never releases payment.</span><small>Permissions are checked on the server, not only in this screen.</small></div>",
+      "css": ".role-banner { display:flex; flex-direction:column; gap:3px; margin:12px 16px 0; padding:11px 14px; background:#242a26; border:1px solid #303a34; border-left:4px solid #22b56a; border-radius:11px; } .role-banner strong { color:#f2f6f3; font-size:16px; } .role-banner span { color:#d8e3dc; font-size:14px; } .role-banner small { color:#9fb0a6; font-size:12px; }"
+    },
+    {
+      "name": "Password Visibility Toggle",
+      "kind": "button",
+      "description": "Inline eye button at the end of the password field; swaps to a crossed-out eye when the value is visible. Accessible name localizes in English and Urdu.",
+      "html": "<div class=\"password-field\"><input id=\"passwordInput\" type=\"password\" autocomplete=\"current-password\"><button id=\"showPasswordBtn\" class=\"password-toggle\" type=\"button\" aria-label=\"Show password\" title=\"Show password\" aria-pressed=\"false\" aria-controls=\"passwordInput\"><svg class=\"icon password-eye password-eye-open\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M2 12s3.8-6.5 10-6.5S22 12 22 12s-3.8 6.5-10 6.5S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"2.8\"/></svg><svg class=\"icon password-eye password-eye-off\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 6.1A11.4 11.4 0 0 1 12 6c6.2 0 10 6 10 6a16.5 16.5 0 0 1-3.4 3.9\"/><path d=\"M6.2 8.2C3.6 9.8 2 12 2 12s3.8 6 10 6a11.4 11.4 0 0 0 3.9-.7\"/></svg></button></div>",
+      "css": ".password-field { position:relative; } .password-field input { padding-inline-end:54px; } .password-toggle { position:absolute; inset-inline-end:5px; top:50%; transform:translateY(-50%); display:grid; place-items:center; width:44px; height:44px; padding:0; background:transparent; color:#9fb0a6; border:1px solid transparent; border-radius:9px; cursor:pointer; } .password-toggle:hover { background:#12281e; border-color:#22b56a; color:#22b56a; } .password-toggle .password-eye { width:21px; height:21px; } .password-toggle .password-eye-off { display:none; } .password-toggle[aria-pressed=\"true\"] .password-eye-open { display:none; } .password-toggle[aria-pressed=\"true\"] .password-eye-off { display:block; }"
+    },
+    {
+      "name": "Language Toggle",
+      "kind": "button",
+      "description": "One globe button on the sign-in card and one in the counter top bar.",
+      "html": "<button class=\"icon-btn lang-toggle\" aria-label=\"Change language\"><svg class=\"icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M3 12h18\"/><path d=\"M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z\"/></svg></button>",
+      "css": ".icon-btn { background:#242a26; color:#d8e3dc; border:1px solid #303a34; border-radius:10px; min-width:46px; min-height:46px; } .icon-btn:hover { background:#12281e; border-color:#22b56a; color:#22b56a; } .lang-toggle { margin-inline-start:auto; }"
+    },
+    {
+      "name": "Quick-Login Chip",
+      "kind": "chip",
+      "description": "Role shortcut; fills email, never submits.",
+      "html": "<button class=\"chip\"><svg class=\"icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4.5 20a7.5 7.5 0 0 1 15 0\"/></svg><span>Citizen</span></button>",
+      "css": ".chip { background:#242a26; color:#d8e3dc; border:1px solid #303a34; border-radius:10px; min-height:52px; padding:10px 8px; font-weight:700; } .chip .icon { color:#22b56a; } .chip:hover { background:#12281e; border-color:#22b56a; }"
+    },
+    {
+      "name": "Status Ticket",
+      "kind": "card",
+      "description": "Dark-green status board with drawn icon, progress, and read-aloud. Status text is rendered from state, not data-i18n.",
+      "html": "<div class=\"card status-card\"><div class=\"status-icon\"><svg class=\"icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3 5 6v6c0 4.5 3 7.8 7 9 4-1.2 7-4.5 7-9V6l-7-3Z\"/></svg></div><div class=\"status-body\"><h2>Your progress</h2><p id=\"statusText\" aria-live=\"polite\">Case RC-RELI-00001: New.</p><div class=\"progress\" role=\"progressbar\"><div></div></div></div></div>",
+      "css": ".status-card { display:flex; gap:14px; background:#12281e; border:1px solid #4a6556; border-radius:14px; padding:20px; } .status-icon { width:44px; height:44px; background:#1b1f1c; border:1px solid #4a6556; border-radius:10px; color:#22b56a; } .progress { height:9px; background:#24382c; border-radius:8px; overflow:hidden; }"
+    },
+    {
+      "name": "Case Row",
+      "kind": "card",
+      "description": "Gray case summary with status glyph, pill, and confidence meter.",
+      "html": "<div class=\"case-item\"><span class=\"case-mark\"><svg class=\"icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12.5a10 10 0 0 1 14 0\"/></svg></span><span class=\"case-body\"><strong>RC-RELI-00001</strong><span class=\"case-meta\"><span class=\"pill\">Human review</span><span class=\"confidence\">Confidence 90%<span class=\"meter\"><span style=\"width:90%\"></span></span></span></span></span></div>",
+      "css": ".case-item { display:flex; gap:12px; background:#1b1f1c; border:1px solid #303a34; border-radius:12px; padding:14px; } .case-mark { width:38px; height:38px; border-radius:9px; background:#12281e; color:#22b56a; } .pill { font-size:14px; border-radius:20px; background:#12281e; color:#22b56a; padding:2px 9px; } .meter { width:58px; height:6px; background:#2b352f; border-radius:6px; overflow:hidden; }"
+    },
+    {
+      "name": "Page Navigation",
+      "kind": "navigation",
+      "description": "Sticky bottom navigation switching three separate hash-routed pages: Home, Cases, Help. Only one view is mounted at a time.",
+      "html": "<nav class=\"bottom-nav\"><button id=\"navHome\" class=\"active\" aria-current=\"page\"><span>Home</span></button><button id=\"navCases\"><span>Cases</span></button><button id=\"navHelp\"><span>Help</span></button></nav>",
+      "css": ".view { display:none; } .view.active { display:block; } .bottom-nav { position:sticky; bottom:0; background:#1b1f1c; border-top:1px solid #303a34; } .bottom-nav button.active { color:#22b56a; background:#12281e; }"
+    },
+    {
+      "name": "Voice Note",
+      "kind": "custom",
+      "description": "Actionable capability notice on Home when no Urdu voice exists. Points Windows users to Microsoft Edge, whose online Urdu voices need no device Settings changes.",
+      "html": "<p class=\"voice-note\">No Urdu voice is available. Open this demo in Microsoft Edge on Windows — it provides online Urdu voices with no settings changes — then reload. Typing still works.</p>",
+      "css": ".voice-note { background:#2a1d08; color:#ffcf8a; border:1px solid #6b4a16; border-radius:9px; padding:9px 12px; font-size:14px; }"
+    },
+    {
+      "name": "Voice Setup Card",
+      "kind": "card",
+      "description": "Help-page diagnostics. Check voices reports the count and any Urdu voice; Test Urdu speaks a sample only when a genuine Urdu voice exists.",
+      "html": "<section class=\"card voice-card\"><h2>Voice setup</h2><p class=\"hint\">Urdu speech works in Microsoft Edge on Windows.</p><button id=\"checkVoicesBtn\" class=\"btn btn-secondary\">Check voices</button><button id=\"testVoiceBtn\" class=\"btn btn-secondary\">Test Urdu</button><div id=\"voiceDiag\" class=\"answer\" aria-live=\"polite\"></div></section>",
+      "css": ".voice-card h2 { margin:0 0 6px; font-size:18px; color:#f2f6f3; } .voice-card .hint { display:block; margin:0 0 12px; color:#9fb0a6; font-size:14px; } .answer { background:#101310; color:#d8e3dc; border-radius:9px; padding:12px; font-size:15px; white-space:pre-wrap; }"
+    },
+    {
+      "name": "Prototype Strip",
+      "kind": "custom",
+      "description": "Permanent, high-contrast honesty notice and network badge.",
+      "html": "<div class=\"prototype-bar\"><span class=\"prototype-notice\"><svg class=\"icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3 2.5 20h19L12 3Z\"/><path d=\"M12 9v5\"/><path d=\"M12 17.5h.01\"/></svg><span>PROTOTYPE — NOT AN OFFICIAL SERVICE — ALL DATA MOCKED</span></span><span class=\"net-badge\" role=\"status\"><span>Online</span></span></div>",
+      "css": ".prototype-bar { position:sticky; top:0; background:#0a0f0c; color:#f4e2b8; font-size:14px; font-weight:700; } .prototype-notice .icon { color:#ffd97a; } .net-badge { color:#a9e6c2; } .net-badge.offline { color:#ffb4a8; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Public Help Window",
+    "overview": "Last Mile presents itself as a service counter that happens to be powered by careful automation: plainly signed, generously printed, and always watched by a human who makes the final call. The interface uses drawn inline SVG icons and no emoji anywhere. In the dark edition, the page field is true black and every foreground surface is neutral dark gray. Green is reserved for action, amber for listening and voice notices, red for blocked states. The signed-in counter is split into three separate hash-routed pages — Home (#/home), Cases (#/cases), Help (#/help) — switched by the bottom navigation with working back/forward buttons. Home is voice-led: the 96px microphone is the primary action and a labelled claim-details grid stays visible as a clearly secondary panel beside a separate request box. Speech fills the request and all recognizable fields; pressing Stop triggers a spoken question for the first missing required field, and each bare answer fills only that field without overwriting the request text. Citizen edits are preserved, required fields block Send until complete, and the case is created only on Send. The Help page carries voice diagnostics and points Windows users to Microsoft Edge for online Urdu voices, because no OS voice pack is required. The language toggle appears on both the sign-in card and the counter top bar so the choice can be made before login and kept afterwards. Urdu is the default and the layout mirrors with dir='rtl'.",
+    "keyCharacteristics": [
+      "Black page field with gray cards, top bar, chips, rows, and navigation.",
+      "Drawn inline SVG icons with stroke: currentColor; zero emoji anywhere.",
+      "A permanent prototype strip with a warning triangle and network badge.",
+      "Language toggle on both sign-in and counter screens, persisted across login.",
+      "One dominant 96px microphone action with an always-available typed path.",
+      "Seven labelled claim fields with a separate request box; the mic fills them and asks by voice for anything missing, while user edits win over voice guesses.",
+      "Bilingual number and district extraction: Arabic-Indic and Persian digits fill CNIC and amounts, and رہائش fills district.",
+      "Three separate hash-routed pages (Home, Cases, Help) with working back/forward navigation.",
+      "Voice diagnostics on Help with Check voices and Test Urdu.",
+      "Status line rendered from state so language toggling never resets it."
+    ],
+    "rules": [
+      { "name": "Black Field Gray Counter", "body": "The page is never tinted; only foreground surfaces are gray. Cards are never white.", "section": "colors" },
+      { "name": "One Green Rule", "body": "Green invites action. If a control is not the next step, it is gray, wash, or outlined.", "section": "colors" },
+      { "name": "Fixed Signals", "body": "Amber means listening or a voice capability notice; red means stopped/blocked/error; near-black with gold means prototype notice.", "section": "colors" },
+      { "name": "Big Enough Rule", "body": "No user-facing text is below 14px and no touch target is below 46px.", "section": "typography" },
+      { "name": "Truthful Voice Rule", "body": "Select a real installed voice from speechSynthesis.getVoices(); never read Urdu with a non-Urdu voice. If none exists, show the actionable voice note.", "section": "voice" },
+      { "name": "Edge Voice Rule", "body": "Windows users who cannot find an Urdu voice pack in Settings should open the demo in Microsoft Edge, which supplies online Urdu natural voices to the browser without any OS settings change.", "section": "voice" },
+      { "name": "Truthful Recognition Error Rule", "body": "A network speech error is never blamed on the connection while navigator.onLine is true. Urdu retries ur-PK, ur, then ur-IN and reports an unsupported browser rather than falling back to English dictation.", "section": "voice" },
+      { "name": "Bilingual Number and District Rule", "body": "Normalise Arabic-Indic and Persian digits before extraction so CNIC and amounts are understood in English or Urdu, and accept رہائش alongside ضلع as a district cue. The Urdu typed example reads as a complete sentence instead of mixed English fragments.", "section": "behavior" },
+      { "name": "One Page At A Time Rule", "body": "Home, Cases, and Help are separate hash-routed views; only one is visible and the nav marks it active.", "section": "behavior" },
+      { "name": "Live Status Rule", "body": "Never put data-i18n on the status line; render it from state so language changes translate rather than reset it.", "section": "behavior" }
+    ],
+    "dos": [
+      "Do keep the page black and the foreground surfaces gray.",
+      "Do keep the language toggle on both the sign-in card and the top bar.",
+      "Do pair every drawn icon with localized text or an accessible name.",
+      "Do keep body text at 17px (16px under 360px) and prompts at 14px or larger.",
+      "Do mirror the full layout when dir flips.",
+      "Do select a real installed voice before speaking."
+    ],
+    "donts": [
+      "Don't reintroduce emoji anywhere in the interface or design artifacts.",
+      "Don't tint the page background or make cards white.",
+      "Don't use amber, red, or the strip colors decoratively.",
+      "Don't add a second dominant action beside the microphone.",
+      "Don't put data-i18n on the live status line.",
+      "Don't read Urdu with a non-Urdu voice."
+    ]
+  }
+}
