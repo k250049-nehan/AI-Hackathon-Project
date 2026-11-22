@@ -48,7 +48,7 @@ Identity verification, data exchange, and payment disbursement are explicitly mo
 - **Bonus capabilities:** Digital Twin rule simulation; Helper Mode with 40 mock families and per-family consent; offline-first sync; scam map by district, label and day; evaluation dashboard (`/api/evaluation/summary`).
 - **Hard product rule:** no fabricated real data, testimonials, customers, benchmarks, licensing, or deployment claims. Nothing here may be presented as connected to NADRA, Raast, or any government system.
 - **Honest limits to preserve:** local heuristics are transparent but not a trained ML system; confidence is calibrated for demonstration, not production; SQLite is a zero-setup demo (SQLAlchemy layer can point at Postgres via `DATABASE_URL`); webhooks are not retried.
-- **Quality bar:** 62 tests cover auth/RBAC, case lifecycle, consent take-back, rule versioning, bad data, classifier routing and false alarms, multi-tenancy, API keys/scopes/rate limiting, offline sync, accessibility, safety gates, explainability and migrations.
+- **Quality bar:** 69 tests cover auth/RBAC, case lifecycle, consent take-back, rule versioning, bad data, classifier routing and false alarms, multi-tenancy, API keys/scopes/rate limiting, offline sync, accessibility, safety gates, explainability and migrations.
 
 ## Brand Commitments
 
